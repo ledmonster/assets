@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/* テキスト調整用 1pt=0.35mmで計算 */
+.fs_14{font-size: 14pt;}
+.fs_11{font-size: 11pt;}
+.fs_9{font-size: 9pt;}
+.fs_7{font-size: 7pt;}
+.fs_5{font-size: 5pt !important;}
+.fs_4{font-size: 4pt !important;}
+.bold{font-weight: bold;}
+
+/* テキスト位置 */
+.center{text-align: center;}
+.left{text-align: left;}
+.right{text-align: right;}
+.v_b{vertical-align: bottom;}
+
+/* フロート解除 */
+.clear{overflow: hidden;}
+
+/* margin */
+.pr_3{padding-right: 3mm;}
+.pl_20{padding-left: 20mm;}
+
+/*  スマホ表示  */
+@media screen and (max-width:520px){
+
+}
