@@ -1,0 +1,426 @@
+@charset "utf-8";
+/* 初期化 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  font-size: 10pt;
+  font-weight: normal;
+  font-family: 'Noto Serif JP', serif;
+  line-height: 1.2em;
+  color: #000;
+  /* 背景色・背景画像を印刷する（Chromeのみで有効） */
+  -webkit-print-color-adjust: exact;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+table{
+  border-collapse:collapse;
+  border-spacing:0;
+}
+
+/* 印刷サイズ設定 */
+@page {
+    size: A4;
+    margin: 0;/* ヘッダー・フッダーを無効化 */
+}
+
+body {width: 210mm; /* needed for Chrome */}
+
+.sheet,.sheet2 {
+  width: 210mm;
+
+  overflow: hidden;
+  position: relative;
+  box-sizing: border-box;
+
+  page-break-after: auto; /* 改ページ設定 */
+
+  /* 余白サイズ */
+  padding-top: 5mm;
+  padding-left: 15mm;
+  padding-right: 5mm;
+  padding-bottom: 8mm;
+}
+
+.flex{
+  display: -webkit-flex;
+  display: flex;
+}
+
+/* 元々のチェックボックス（非表示） */
+input[type=checkbox] {
+  display: none;
+}
+/* checkbox01 */
+.checkbox01{
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 1mm;
+    position: relative;
+    width: auto;
+}
+/* ラベルの左に表示させる正方形のボックス□ */
+.checkbox01::before {
+  background: #fff;
+  border: 1px solid #000;
+  content: '';
+  display: block;
+  width: 3mm;
+  height: 3mm;
+  margin-top: -1.8mm;
+  position: absolute;
+  left: 1mm;
+  top: 50%;
+}
+/* チェックが入った時のレ点 */
+.checkbox01::after {
+  border-right: 1px solid #000;
+  border-bottom: 1px solid #000;
+  content: '';
+  display: block;
+  height: 3mm;
+  left: 2mm;
+  margin-top: -2.5mm;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  transform: rotate(45deg);
+  width: 2mm;
+}
+input[type=checkbox]:checked + .checkbox01::after {
+  opacity: 1;
+}
+
+label.checkbox01{
+  padding-left: 8mm;
+}
+
+/* checkbox02 */
+.checkbox02{
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 1mm;
+  position: relative;
+  width: auto;
+}
+/* ラベルの左に表示させる正方形のボックス□ */
+.checkbox02::before {
+background: #fff;
+border: 1px solid #000;
+content: '';
+display: block;
+width: 2.5mm;
+height: 2.5mm;
+margin-top: -1.8mm;
+position: absolute;
+left: 5mm;
+top: 50%;
+}
+/* チェックが入った時のレ点 */
+.checkbox02::after {
+border-right: 1px solid #000;
+border-bottom: 1px solid #000;
+content: '';
+display: block;
+height: 2.5mm;
+left: 5mm;
+margin-top: -2.5mm;
+opacity: 0;
+position: absolute;
+top: 50%;
+transform: rotate(45deg);
+width: 2.5mm;
+}
+
+input[type=checkbox]:checked + .checkbox02::after {
+opacity: 1;
+}
+
+label.checkbox02{
+padding-left: 10mm;
+}
+
+/* ○をつけるデザイン */
+.yokomaru{
+  border-style: solid;
+  border-width: 1px;
+  border-color: #000000;
+  font-size: 80% ;
+  height:2mm;
+  width:2mm;
+  -moz-border-radius: 2mm;
+	-webkit-border-radius: 2mm;
+	-o-border-radius: 2mm;
+	-ms-border-radius: 2mm; 
+  border-radius: 2mm; 
+  padding:0 0;
+  margin-left : 0;
+  margin-right: 0;
+ }
+
+/* 1Page */
+/* 行の高さ */
+.sheet div.row_1{height: 5mm;}
+.sheet div.row_2{height: 8mm;}
+.sheet div.row_3{height: 22mm;}
+.sheet div.row_4{height: 28.5mm;}
+.sheet div.row_5{min-height: 15mm;}
+.sheet div.row_6{min-height: 15mm;}
+.sheet div.row_7{height: 15mm;}
+.sheet div.row_8{height: 90mm;}
+.sheet div.row_9{height: 37mm;}
+.sheet div.row_10{min-height: 23mm;}
+.sheet div.row_11{height: 6mm;}
+
+/* 行間 */
+.sheet div.row_1{margin-bottom: 0;}
+.sheet div.row_2{margin-bottom: 0;}
+.sheet div.row_3{margin-bottom: 5mm;}
+.sheet div.row_4{margin-bottom: 0;}
+.sheet div.row_5{margin-bottom: 0;}
+.sheet div.row_6{margin-bottom: 0;}
+.sheet div.row_7{margin-bottom: 0;}
+.sheet div.row_8{margin-bottom: 0;}
+.sheet div.row_9{margin-bottom: 0;}
+.sheet div.row_10{margin-bottom: 3mm;}
+
+div.col_1{
+  width: 42mm;
+  border-right: solid #000 2px;
+}
+div.col_1_1{
+  width: 5mm;
+  text-align: center;
+}
+div.col_1_2{
+  width: 36mm;
+}
+div.col_2{
+  width: 152mm;
+}
+
+/* div.row_1 のデザイン */
+
+/* div.row_2 のデザイン */
+.sheet div.row_2 h1{
+  font-size: 14pt;
+  line-height: 14pt;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+}
+/* div.row_3 のデザイン */
+.sheet div.row_3{
+  width: 181mm;
+  border: solid #000 2px;
+}
+.sheet div.row_3 p{
+  font-size: 10pt;
+  line-height: 1.3rem;
+  font-weight: bold;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* div.row_4 のデザイン */
+.sheet div.row_4{
+  border-left: solid #000 2px;
+  border-top: solid #000 2px;
+  border-right: solid #000 2px;
+  width: 181mm;
+}
+
+.sheet div.row_4 div.col_2 table{width:100%;}
+
+.sheet div.row_4 div.col_2 table tr:nth-of-type(1){height: 5mm;}
+.sheet div.row_4 div.col_2 table tr:nth-of-type(2){height: 4.5mm;}
+.sheet div.row_4 div.col_2 table tr:nth-of-type(3){height: 4.5mm;}
+.sheet div.row_4 div.col_2 table tr:nth-of-type(4){height: 5mm;}
+.sheet div.row_4 div.col_2 table tr:nth-of-type(5){height: 4.5mm;}
+.sheet div.row_4 div.col_2 table tr:nth-of-type(6){height: 4.5mm;}
+
+.sheet div.row_4 div.col_2 table td:nth-of-type(1){width: 54mm;}
+
+/* div.row_5 のデザイン */
+.sheet div.row_5{
+  border-left: solid #000 2px;
+  border-top: solid #000 2px;
+  border-right: solid #000 2px;
+  width: 181mm;
+}
+
+.sheet div.row_5 .col_2 div.box_left{
+  border-right: dashed #000 1px;
+  width: 45mm;
+}
+
+.sheet div.row_5 .col_2 div.box_left p{
+  width: 45mm;
+  height: 5mm;
+}
+
+/* div.row_6 のデザイン */
+.sheet div.row_6{
+  border-left: solid #000 2px;
+  border-top: solid #000 2px;
+  border-right: solid #000 2px;
+  width: 181mm;
+}
+
+.sheet div.row_6 .col_2 div.box_left{
+  border-right: dashed #000 1px;
+  width: 45mm;
+}
+
+.sheet div.row_6 .col_2 div.box_left p{
+  width: 45mm;
+  height: 5mm;
+}
+
+/* div.row_7 のデザイン */
+.sheet div.row_7{
+  border-left: solid #000 2px;
+  border-top: solid #000 2px;
+  border-right: solid #000 2px;
+  width: 181mm;
+}
+
+.sheet div.row_7 div.col_2 p{height: 5mm;}
+
+/* div.row_8 のデザイン */
+.sheet div.row_8{
+  border-left: solid #000 2px;
+  border-top: solid #000 2px;
+  border-right: solid #000 2px;
+  width: 181mm;
+}
+
+.sheet div.row_8 label.checkbox01{padding-left: 5mm;}
+
+.sheet div.row_8 .col_2 p:nth-of-type(1){height: 5mm;}
+.sheet div.row_8 .col_2 p:nth-of-type(2){
+  height: 5mm;
+  line-height: 5mm;
+  padding-left: 5mm;
+}
+.sheet div.row_8 .col_2 p:nth-of-type(3){
+  height: 4mm;
+  padding-left: 4mm;
+}
+.sheet div.row_8 .col_2 p:nth-of-type(4){
+  height: 6mm;
+  line-height: 6mm;
+  padding-left: 5mm;
+}
+.sheet div.row_8 .col_2 p:nth-of-type(5){
+  height: 4mm;
+  padding-left: 4mm;
+}
+.sheet div.row_8 .col_2 p:nth-of-type(6){
+  height: 6mm;
+  line-height: 6mm;
+  padding-left: 5mm;
+}
+.sheet div.row_8 .col_2 p:nth-of-type(7){height: 5mm;}
+.sheet div.row_8 .col_2 p:nth-of-type(8){
+  height: 5mm;
+  line-height: 5mm;
+  padding-left: 5mm;
+}
+.sheet div.row_8 .col_2 p:nth-of-type(9){height: 5mm;}
+.sheet div.row_8 .col_2 p:nth-of-type(10),.sheet div.row_8 .col_2 p:nth-of-type(11),.sheet div.row_8 .col_2 p:nth-of-type(12){
+  height: 5mm;
+  line-height: 5mm;
+  padding-left: 5mm;
+}
+
+.sheet div.row_8 .col_2 p:nth-of-type(13){height: 5mm;}
+.sheet div.row_8 .col_2 p:nth-of-type(14),.sheet div.row_8 .col_2 p:nth-of-type(15),.sheet div.row_8 .col_2 p:nth-of-type(16),.sheet div.row_8 .col_2 p:nth-of-type(17),.sheet div.row_8 .col_2 p:nth-of-type(18),.sheet div.row_8 .col_2 p:nth-of-type(19){
+  height: 4mm;
+  line-height: 4mm;
+  padding-left: 5mm;
+}
+
+.sheet div.row_8 .col_2 span{
+  display: inline-block;
+  border-bottom: dotted #000 2px;
+  width: 35mm;
+  height: 5mm;
+  margin: 0 3mm;
+  text-align: center;
+}
+
+/* div.row_9 のデザイン */
+.sheet div.row_9{
+  border-left: solid #000 2px;
+  border-top: solid #000 2px;
+  border-right: solid #000 2px;
+  width: 181mm;
+}
+
+.sheet div.row_9 table,.sheet div.row_9 table tr{width: 100%;}
+.sheet div.row_9 table td{padding: 0.5mm 0;}
+.sheet div.row_9 table tr:nth-of-type(1),.sheet div.row_9 table tr:nth-of-type(2),.sheet div.row_9 table tr:nth-of-type(3){
+  height: 4mm;
+  line-height: 4mm;
+}
+.sheet div.row_9 table tr:nth-of-type(4){
+  height: 7mm;
+  font-size: 8pt;
+}
+.sheet div.row_9 table tr:nth-of-type(5),.sheet div.row_9 table tr:nth-of-type(6),.sheet div.row_9 table tr:nth-of-type(7){
+  height: 4mm;
+  line-height: 4mm;
+}
+
+.sheet div.row_9 table td:nth-of-type(1){width: 22mm;}
+.sheet div.row_9 table td:nth-of-type(2){width: 35mm;}
+.sheet div.row_9 table td:nth-of-type(3){text-align: center;}
+
+/* div.row_10 のデザイン */
+.sheet div.row_10{
+  border: solid #000 2px;
+  width: 181mm;
+}
+.sheet div.row_10 .col_2{
+  padding: 1mm 5mm;
+  line-height: 1.5em;
+}
+
+/* div.row_11 のデザイン */
+.sheet div.row_11{width: 181mm;}
+.sheet div.row_11 div.col_1{
+  padding-left: 61mm;
+  width: 51mm;
+  border-right: none;
+}
+.sheet div.row_11 div.col_2{width: 14mm;}
+.sheet div.row_11 div.col_3{
+  width: 44mm;
+  border-bottom: solid #000 2px;
+  letter-spacing: 0.5em;
+  font-size: 12pt;
+  text-align: center;
+}
+
+@media screen {
+  /* この中に画面プレビュー用のスタイル指定を書く */
+  body {
+    background: #eee;
+    width: 100%;
+    height:100%;
+  }
+  .sheet,.sheet2 {
+    background: white; /* 背景を白く */
+    box-shadow: 0 .5mm 2mm rgba(0,0,0,.3); /* ドロップシャドウ */
+    margin: 5mm 5mm 5mm 5mm;
+  }
+}

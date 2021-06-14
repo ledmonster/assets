@@ -4,16 +4,29 @@
 .fs_14{font-size: 14pt;}
 .fs_11{font-size: 11pt;}
 .fs_9{font-size: 9pt;}
+.fs_8{font-size: 8pt;}
 .fs_7{font-size: 7pt;}
 .fs_5{font-size: 5pt !important;}
 .fs_4{font-size: 4pt !important;}
 .bold{font-weight: bold;}
+.sans{font-family: 'Noto Sans JP', sans-serif;}
+h1{
+    font-size: 14pt;
+}
+h2{
+    font-size: 12pt;
+    line-height: 2em;
+}
 
 /* テキスト位置 */
 .center{text-align: center;}
 .left{text-align: left;}
 .right{text-align: right;}
 .v_b{vertical-align: bottom;}
+
+.underline{text-decoration:underline;}
+.underline_double{text-decoration:underline double #000 1px;}
+.underline_dash{text-decoration:underline dashed #000 1px;}
 
 /* フロート解除 */
 .clear{overflow: hidden;}
