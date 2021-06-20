@@ -92,6 +92,50 @@ input[type=checkbox]:checked + .checkbox01::after {
 label.checkbox01{
   padding-left: 10mm;
 }
+/* checkbox02 */
+.checkbox02{
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0 1mm;
+  position: relative;
+  width: auto;
+}
+/* ラベルの左に表示させる正方形のボックス□ */
+.checkbox02::before {
+background: #fff;
+border: 1px solid #000;
+content: '';
+display: block;
+width: 3mm;
+height: 3mm;
+margin-top: -4.3mm;
+position: absolute;
+left: 5mm;
+top: 50%;
+}
+/* チェックが入った時のレ点 */
+.checkbox02::after {
+border-right: 1px solid #000;
+border-bottom: 1px solid #000;
+content: '';
+display: block;
+height: 3mm;
+left: 5mm;
+margin-top: -5mm;
+opacity: 0;
+position: absolute;
+top: 50%;
+transform: rotate(45deg);
+width: 2mm;
+}
+input[type=checkbox]:checked + .checkbox02::after {
+opacity: 1;
+}
+
+label.checkbox02{
+padding-left: 10mm;
+}
 /* 水色マーカー */
 span.blue{background-color: aqua;}
 
@@ -187,10 +231,6 @@ div.left_wrap span.box{
 }
 .sheet div.row_6 p{
   margin-bottom: 3mm;
-}
-
-.sheet div.row_6 p.up .checkbox01::before{
-  margin-top: -4.3mm;
 }
 
 .sheet div.row_6 p:nth-of-type(6){
